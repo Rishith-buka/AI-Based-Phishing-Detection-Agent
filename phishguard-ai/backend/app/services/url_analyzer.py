@@ -77,6 +77,40 @@ def is_ip_address(hostname: str) -> bool:
         return False
 
 
+def extract_url_from_qr(qr_content: str) -> str:
+    cleaned = (qr_content or "").strip()
+
+    if not cleaned:
+        raise ValueError("QR content is empty.")
+
+    if cleaned.startswith(("http://", "https://")):
+        return normalize_url(cleaned)
+
+    match = re.search(r"https?://[^\s\"'<>]+", cleaned)
+    if match:
+        return normalize_url(match.group(0).rstrip(".,;:)]}"))
+
+    if "." in cleaned and any(part.isalpha() for part in cleaned.split(".")):
+        return normalize_url(cleaned)
+
+    raise ValueError("No valid URL was found in the QR content.")
+
+
+def analyze_qr_data(qr_content: str) -> dict:
+    url = extract_url_from_qr(qr_content)
+    analysis = analyze_url(url)
+    analysis["source"] = "qr_scan"
+    analysis["features"].insert(
+        0,
+        {
+            "name": "QR Payload",
+            "status": "info",
+            "message": "A QR code was decoded and its embedded URL was analyzed."
+        }
+    )
+    return analysis
+
+
 def analyze_url(url: str) -> dict:
     normalized_url = normalize_url(url)
 

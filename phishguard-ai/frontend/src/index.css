@@ -136,12 +136,28 @@ input {
   margin-top: 5px;
 }
 
-.demo-button {
+.mode-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mode-button,
+.demo-button,
+.upload-button {
   border: 1px solid #dce1ea;
   background: white;
   padding: 9px 13px;
   border-radius: 8px;
   cursor: pointer;
+  color: #243045;
+}
+
+.mode-button.active {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #3730a3;
+  font-weight: 600;
 }
 
 form {
@@ -169,6 +185,7 @@ form {
   color: #172033;
 }
 
+.upload-button,
 .analyze-button {
   border: none;
   background: #4f46e5;
@@ -177,6 +194,11 @@ form {
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.upload-button {
+  min-width: 120px;
+  height: 48px;
 }
 
 .analyze-button:disabled {
