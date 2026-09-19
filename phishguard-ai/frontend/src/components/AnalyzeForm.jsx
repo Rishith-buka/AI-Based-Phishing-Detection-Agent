@@ -74,12 +74,6 @@ function AnalyzeForm({ onResult }) {
     }
   }
 
-  function useDemoURL() {
-    setUrl("https://secure-paypa1-login.xyz/verify");
-    setQrText("https://secure-paypa1-login.xyz/verify");
-    setMode("url");
-  }
-
   async function handleQrUpload(event) {
     const file = event.target.files?.[0];
 
@@ -149,9 +143,6 @@ function AnalyzeForm({ onResult }) {
           </button>
           <button type="button" className={`mode-button ${mode === "qr" ? "active" : ""}`} onClick={() => setMode("qr")}>
             QR
-          </button>
-          <button type="button" className="demo-button" onClick={useDemoURL}>
-            Try Demo
           </button>
         </div>
       </div>
