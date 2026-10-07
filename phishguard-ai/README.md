@@ -1,4 +1,4 @@
-# PhishGuard AI
+# PhishGuru AI
 
 A simple phishing detection MVP built with FastAPI and React.
 

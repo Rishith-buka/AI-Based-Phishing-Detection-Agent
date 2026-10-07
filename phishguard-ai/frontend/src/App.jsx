@@ -14,7 +14,7 @@ function App() {
           <div className="brand-icon">🛡️</div>
 
           <div>
-            <h1>PhishGuard AI</h1>
+            <h1>PhishGuru AI</h1>
             <p>Next-Generation Phishing Detection</p>
           </div>
         </div>
@@ -89,7 +89,7 @@ function App() {
       </main>
 
       <footer>
-        <p>PhishGuard AI • Cybersecurity Research Prototype</p>
+        <p>PhishGuru AI • Cybersecurity Research Prototype</p>
       </footer>
     </div>
   );

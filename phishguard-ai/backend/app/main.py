@@ -6,7 +6,7 @@ from .services.url_analyzer import analyze_qr_data, analyze_url
 from .services.risk_engine import calculate_risk
 
 app = FastAPI(
-    title="PhishGuard AI",
+    title="PhishGuru AI",
     description="AI-powered phishing detection MVP",
     version="1.0.0"
 )
@@ -30,7 +30,7 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {
-        "message": "PhishGuard AI API is running",
+        "message": "PhishGuru AI API is running",
         "version": "1.0.0"
     }
 
